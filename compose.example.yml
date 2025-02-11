@@ -91,8 +91,6 @@ services:
   #   volumes:
   #     - "./certs:/certs"
   #     - "/var/run/docker.sock:/var/run/docker.sock"
-  #   networks:
-  #     - web
   #   logging:
   #     driver: "json-file"
   #     options:
