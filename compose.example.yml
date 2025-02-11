@@ -9,6 +9,7 @@ services:
       - SKIP_COMPOSER_INSTALL=false
       - SKIP_SEEDERS=true
       - SKIP_MIGRATIONS=false
+      - DB_CONNECTION=mysql
       - DB_HOST=db
       - DB_DATABASE=laravel
       - DB_USERNAME=laravel
@@ -74,20 +75,18 @@ services:
 
 
 
-  # If you want to use traefik as reverse proxy with custom certificates
+  # Would like to use traefik with custom certificate, no lets encrypt
   # traefik:
   #   image: traefik:v2.6
   #   container_name: traefik
   #   command:
   #     - "--entrypoints.web.address=:80"
-  #     - "--entrypoints.websecure.address=:443"  
-  #     - "--certificatesresolvers.custom.acme.tlschallenge=true"
-  #     - "--entrypoints.websecure.http.tls=true"  
-  #     - "--entrypoints.websecure.http.tls.certificatesFile=/certs/cert.crt"  
-  #     - "--entrypoints.websecure.http.tls.keyFile=/certs/cert.key"  
+  #     - "--entrypoints.websecure.address=:443"
+  #     - "--entrypoints.websecure.http.tls.certificates[0].certFile=/certs/cert.crt"
+  #     - "--entrypoints.websecure.http.tls.certificates[0].keyFile=/certs/cert.key"
   #   ports:
   #     - "80:80"
-  #     - "443:443" 
+  #     - "443:443"
   #   volumes:
   #     - "./certs:/certs"
   #     - "/var/run/docker.sock:/var/run/docker.sock"
@@ -96,3 +95,5 @@ services:
   #     options:
   #       max-size: "10m"
   #       max-file: "3"
+
+  
