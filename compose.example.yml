@@ -16,6 +16,7 @@ services:
       - DB_PASSWORD=laravel
       - CACHE_STORE=file
       - SESSION_DRIVER=file
+      - SITE_TITLE="Syslog Web"
     labels:
       - "traefik.http.routers.myapp.rule=Host(`example.com`)"  
       - "traefik.http.routers.myapp.entrypoints=websecure"
