@@ -51,8 +51,6 @@ class SystemEventController extends Controller
     }
 
     private function getNavbarColor(){
-        if(env("NAVBAR_COLOR"))
-            return env("NAVBAR_COLOR");
-        return "#005eff";
+        return env("NAVBAR_COLOR") ? env("NAVBAR_COLOR") : "#005eff";
     }
 }
