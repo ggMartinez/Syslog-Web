@@ -1,6 +1,7 @@
 services:
   web-ui:
     image: ggmartinez/laravel:php-8.2-apache
+    restart: unless-stopped
     volumes:
       - .:/var/www/html
     ports:
@@ -32,6 +33,7 @@ services:
 
   db:
     image: mysql:8
+    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: laravel
@@ -50,10 +52,14 @@ services:
   # Uncomment to use nginx-proxy with own SSL Certificates
   # nginx-proxy:
   #   image: jwilder/nginx-proxy:alpine
+  #   restart: unless-stopped
   #   volumes:
   #     - /var/run/docker.sock:/tmp/docker.sock:ro
   #     - ./certs/cert.key:/etc/nginx/certs/cert.key:ro
   #     - ./certs/cert.crt:/etc/nginx/certs/cert.crt:ro
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
   #   logging:
   #     driver: "json-file"
   #     options:
