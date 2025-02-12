@@ -12,7 +12,8 @@ class SystemEventController extends Controller
         $hosts = $this -> getHosts();
         $tags = $this -> getTags();
         $events = $this -> getLogEvents($request);
-        return view('home', ['Events' => $events, 'Hosts' => $hosts, 'Tags' => $tags]);
+        $navbarColor = $this -> getNavbarColor();
+        return view('home', ['Events' => $events, 'Hosts' => $hosts, 'Tags' => $tags, 'NavbarColor' => $navbarColor]);
     }
 
 
@@ -47,5 +48,11 @@ class SystemEventController extends Controller
         $tags = SystemEvent::select('SysLogTag')->distinct()->pluck("SysLogTag");
         Cache::put('tags', $tags, 300);
         return $tags;
+    }
+
+    private function getNavbarColor(){
+        if(env("NAVBAR_COLOR"))
+            return env("NAVBAR_COLOR");
+        return "#005eff";
     }
 }

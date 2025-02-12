@@ -85,7 +85,7 @@
     </div>
 
     
-<nav  class="navbar navbar-expand-md navbar-dark bg-blue mb-4">
+<nav  class="navbar navbar-expand-md navbar-dark bg-blue mb-4" style="background-color: {{ $NavbarColor }} !important;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">{{ env('SITE_TITLE') }}</a> <div class="vr"></div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,7 +98,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"> <i style="font-size: 18px" class="bi bi-hdd-rack"></i> Hosts</a>
-          <ul class="dropdown-menu bg-blue">
+          <ul class="dropdown-menu" style="background-color: {{ $NavbarColor }} !important;">
             @if(is_null(Request::get("tag")) && is_null(Request::get("message")))
               <li><a class="dropdown-item" href="/">All hosts</a></li>
             @else
@@ -119,7 +119,7 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"> <i style="font-size: 18px" class="bi bi-bookmark-dash"></i> Syslog Tags</a>
-          <ul class="dropdown-menu bg-blue">
+          <ul class="dropdown-menu" style="background-color: {{ $NavbarColor }} !important;">
             @if(is_null(Request::get("host")) && is_null(Request::get("message")))
               <li><a class="dropdown-item" href="/">All tags</a></li>
             @else
